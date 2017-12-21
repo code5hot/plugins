@@ -52,7 +52,7 @@ import Data.Dynamic             ( Dynamic )
 import Data.Typeable            ( Typeable )
 
 import Data.Either              ( )
-import Data.Map as Map
+import Data.Map as Map hiding   ( take )
 import Data.Char
 
 import System.IO                ( )
