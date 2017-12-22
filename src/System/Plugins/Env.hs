@@ -69,7 +69,10 @@ import System.IO.Error          ( catch, ioError, isDoesNotExistError )
 
 import Control.Concurrent.MVar  ( MVar(), newMVar, withMVar )
 
-import Distribution.Package hiding (Module, depends, packageName, PackageName(..)
+import Distribution.Package hiding (depends, packageName, PackageName(..)
+#if MIN_VERSION_ghc(7,6,0)
+                                   , Module
+#endif
 #if MIN_VERSION_ghc(7,10,0)
                                    , installedPackageId
 #endif
