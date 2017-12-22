@@ -52,9 +52,6 @@ matrix:
     - env: CABALVER=1.24 GHCVER=8.0.1 HAPPYVER=1.19.5 CABAL=cabal
       compiler: ": #GHC 8.0.1"
       addons: {apt: {packages: [cabal-install-1.24,ghc-8.0.1,happy-1.19.5], sources: [hvr-ghc]}}
-    - env: CABALVER=2.0 GHCVER=8.1.0 HAPPYVER=1.19.5 CABAL=/opt/cabal/bin/cabal-2.0 CABALPROCESS=new-
-      compiler: ": #GHC 8.1.0"
-      addons: {apt: {packages: [cabal-install-2.0,ghc-8.1.0,happy-1.19.5], sources: [hvr-ghc]}}
     - env: CABALVER=2.0 GHCVER=8.2.2 HAPPYVER=1.19.5 CABAL=/opt/cabal/bin/cabal-2.0 CABALPROCESS=new-
       compiler: ": #GHC 8.2.2"
       addons: {apt: {packages: [cabal-install-2.0,ghc-8.2.2,happy-1.19.5], sources: [hvr-ghc]}}
@@ -106,8 +103,8 @@ script:
  - $CABAL ${CABALPROCESS}configure --enable-tests --enable-benchmarks -v2  # -v2 provides useful information for debugging
  - $CABAL ${CABALPROCESS}build   # this builds all libraries and executables (including tests/benchmarks)
  - $CABAL ${CABALPROCESS}test
- - $CABAL ${CABALPROCESS}check
- - $CABAL ${CABALPROCESS}sdist   # tests that a source-distribution can be generated
+ - $CABAL check
+ - $CABAL sdist   # tests that a source-distribution can be generated
 
 # Check that the resulting source distribution can be built & installed.
 # If there are no other `.tar.gz` files in `dist`, this can be even simpler:

@@ -52,7 +52,11 @@ import Data.Dynamic             ( Dynamic )
 import Data.Typeable            ( Typeable )
 
 import Data.Either              ( )
-import Data.Map as Map hiding   ( take )
+import Data.Map as Map hiding   (
+#if MIN_VERSION_ghc(8,2,2)
+                                  take
+#endif
+                                )
 import Data.Char
 
 import System.IO                ( )
